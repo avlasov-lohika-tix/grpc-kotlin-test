@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.avlasov.grpc";
+option java_outer_classname = "TestProto";
+option objc_class_prefix = "TIX";
+
+message TestRequest {
+  int64 value = 1;
+}
+
+message TestResponse {
+  int64 originalValue = 1;
+  int64 newValue = 2;
+}
+
+service TestService {
+  rpc Test(TestRequest) returns (TestResponse);
+  rpc TestArrayList(stream TestRequest) returns (stream TestResponse);
+  rpc TestLinkedList(stream TestRequest) returns (stream TestResponse);
+  rpc TestChannel(stream TestRequest) returns (stream TestResponse);
+  rpc TestChannelChunkedCustom(stream TestRequest) returns (stream TestResponse);
+}
+
+service TestServiceFlow {
+  rpc TestKotlinFlow(stream TestRequest) returns (stream TestResponse);
+  rpc TestKotlinFlowCustom(stream TestRequest) returns (stream TestResponse);
+}
