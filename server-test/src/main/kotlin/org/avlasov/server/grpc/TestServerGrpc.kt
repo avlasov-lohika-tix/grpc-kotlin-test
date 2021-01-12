@@ -29,41 +29,43 @@ class TestServerGrpc(
     private val helpService: HelpService
 ) : TestServiceGrpc.TestServiceImplBase() {
 
-    override fun testArrayList(responseObserver: StreamObserver<TestResponse>?): StreamObserver<TestRequest> =
+    override fun testArrayList(responseObserver: StreamObserver<TestResponse>): StreamObserver<TestRequest> =
         object : StreamObserver<TestRequest> {
 
-            val values = mutableListOf<TestRequest>()
+            val values = Collections.synchronizedList(mutableListOf<TestRequest>())
 
-            override fun onNext(value: TestRequest?) {
-                if (responseObserver == null || value == null) return
-
+            override fun onNext(value: TestRequest) {
                 values.add(value)
 
                 val currentSize = values.size
 
                 if (currentSize != 0 && currentSize % CHUNK == 0) {
-                    val prevElement = currentSize - CHUNK
-                    values.subList(prevElement, currentSize)
+//                    val prevElement = currentSize - CHUNK
+                    val subList = values.subList(0, CHUNK)
+                    subList
                         .map { helpService.modify(it) }
                         .forEach {
                             responseObserver.onNext(it)
                         }
+                    (0..CHUNK).forEach { values.removeAt(it) }
                 }
             }
 
-            override fun onError(t: Throwable?) {
-                responseObserver?.onError(t)
+            override fun onError(t: Throwable) {
+                responseObserver.onError(t)
+                values.clear()
             }
 
             override fun onCompleted() {
                 val size = values.size
-                if (responseObserver != null && size != 0 && size % CHUNK != 0) {
+                if (size != 0 && size % CHUNK != 0) {
                     val lastValues = size % CHUNK
                     values.subList(size - lastValues, size)
                         .map { helpService.modify(it) }
                         .forEach { responseObserver.onNext(it) }
                 }
-                responseObserver?.onCompleted()
+                responseObserver.onCompleted()
+                values.clear()
             }
 
         }
