@@ -14,10 +14,17 @@ class ControllerDataProcessingService {
     fun process(
         elements: Long,
         iterations: Int = 1,
+        delay: Short,
         operation: (requests: List<TestRequest>) -> List<TestResponse>
     ): DataResponseDto {
         val requests = (1L..elements)
-            .map { TestRequest.newBuilder().setValue(it).build() }
+            .map {
+                TestRequest
+                    .newBuilder()
+                    .setValue(it)
+                    .setDelay(delay.toInt())
+                    .build()
+            }
 
         val start = Instant.now()
 
@@ -41,7 +48,8 @@ class ControllerDataProcessingService {
             endTime = Instant.now(),
             grpcServiceExecutionDuration = averageExecutionTime,
             grpcServiceExecutionPrettyDuration = "GRPC average (for $iterations) execution duration in seconds - ${averageExecutionTime.let { String.format("%.2f", it) }}s",
-            iterations = iterations
+            iterations = iterations,
+            chunkOperationDelay = delay
         )
 
     }

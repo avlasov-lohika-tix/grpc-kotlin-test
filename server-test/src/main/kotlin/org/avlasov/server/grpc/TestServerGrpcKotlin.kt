@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flattenConcat
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
@@ -55,9 +56,6 @@ class TestServerGrpcKotlin(
     override fun testKotlinFlowCustom(requests: Flow<TestRequest>): Flow<TestResponse> =
         flow {
             requests.chunked(CHUNK)
-                .map { helpService.modify(it) }
-                .collect {
-                    emitAll(it.asFlow())
-                }
+                .flatMapConcat { helpService.modify(it).asFlow() }
         }
 }

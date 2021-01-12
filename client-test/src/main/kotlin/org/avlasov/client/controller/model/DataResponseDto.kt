@@ -1,6 +1,5 @@
 package org.avlasov.client.controller.model
 
-import java.time.Duration
 import java.time.Instant
 
 data class DataResponseDto(
@@ -8,5 +7,6 @@ data class DataResponseDto(
     val grpcServiceExecutionDuration: Double,
     val grpcServiceExecutionPrettyDuration: String,
     val iterations: Int,
+    val chunkOperationDelay: Short,
     val endTime: Instant
 )

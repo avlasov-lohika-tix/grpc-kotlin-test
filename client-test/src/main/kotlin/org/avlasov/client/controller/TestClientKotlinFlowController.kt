@@ -17,12 +17,20 @@ class TestClientKotlinFlowController(
 ) {
 
     @GetMapping("/default")
-    fun testKotlinFlow(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientKotlinFlowGrpc::testKotlinFlow))
+    fun testKotlinFlow(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientKotlinFlowGrpc::testKotlinFlow))
 
     @GetMapping("/custom")
-    fun testKotlinFlowCustom(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientKotlinFlowGrpc::testKotlinFlowCustom))
+    fun testKotlinFlowCustom(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientKotlinFlowGrpc::testKotlinFlowCustom))
 
 
 }

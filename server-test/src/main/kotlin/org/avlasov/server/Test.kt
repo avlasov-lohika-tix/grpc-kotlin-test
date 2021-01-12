@@ -15,24 +15,24 @@ import java.util.concurrent.TimeUnit
 
 const val CHUNK_VALUE = 10
 
-fun main() {
-    val channel = Channel<Int>()
-
+//fun main() {
+//    val channel = Channel<Int>()
+//
 //    consume(channel)
-
-    customConsume(channel)
-
-    GlobalScope.launch {
-        for (i in 1..1000001) {
-            channel.send(i)
-        }
-        channel.close()
-    }
-
-    runBlocking {
-        delay(100000L)
-    }
-}
+//
+//    customConsume(channel)
+//
+//    GlobalScope.launch {
+//        for (i in 1..1000001) {
+//            channel.send(i)
+//        }
+//        channel.close()
+//    }
+//
+//    runBlocking {
+//        delay(100000L)
+//    }
+//}
 
 fun consume(channel: Channel<Int>) = GlobalScope.launch {
     val start = System.currentTimeMillis()

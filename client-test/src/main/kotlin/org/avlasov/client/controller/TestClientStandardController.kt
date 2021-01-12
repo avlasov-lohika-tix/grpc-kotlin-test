@@ -26,19 +26,35 @@ class TestClientStandardController(
             .let { ResponseEntity.ok(it) }
 
     @GetMapping("/array-list")
-    fun testArrayList(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientGrpc::testArrayList))
+    fun testArrayList(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientGrpc::testArrayList))
 
     @GetMapping("/linked-list")
-    fun testLinkedList(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientGrpc::testLinkedList))
+    fun testLinkedList(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientGrpc::testLinkedList))
 
     @GetMapping("/channel")
-    fun testChannel(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientGrpc::testChannel))
+    fun testChannel(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientGrpc::testChannel))
 
     @GetMapping("/channel/custom")
-    fun testChannelCustomChunked(@RequestParam elements: Long, @RequestParam(required = false, defaultValue = "1") iterations: Int): ResponseEntity<DataResponseDto> =
-        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, testClientGrpc::testChannelCustomChunked))
+    fun testChannelCustomChunked(
+        @RequestParam elements: Long,
+        @RequestParam(required = false, defaultValue = "1") iterations: Int,
+        @RequestParam(required = false, defaultValue = "0") delay: Short
+    ): ResponseEntity<DataResponseDto> =
+        ResponseEntity.ok(controllerDataProcessingService.process(elements, iterations, delay, testClientGrpc::testChannelCustomChunked))
 
 }

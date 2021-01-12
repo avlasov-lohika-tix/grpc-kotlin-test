@@ -39,11 +39,12 @@ Statistic example:
 
 ```json
 {
-"startTime": "2021-01-11T16:03:40.588Z",
-"grpcServiceExecutionDuration": 2.2720999999999996,
-"grpcServiceExecutionPrettyDuration": "GRPC average (for 10) execution duration in seconds - 2.27s",
+"startTime": "2021-01-12T09:52:46.180Z",
+"grpcServiceExecutionDuration": 2.7072999999999996,
+"grpcServiceExecutionPrettyDuration": "GRPC average (for 10) execution duration in seconds - 2.71s",
 "iterations": 10,
-"endTime": "2021-01-11T16:04:03.309Z"
+"chunkOperationDelay": 0,
+"endTime": "2021-01-12T09:53:13.253Z"
 }
 ```
 
@@ -60,7 +61,7 @@ Statistic example:
 
 ### 100000 Elements for 10 iterations
 
-1. Array list - 2.27s
+1. Array list - 2.71s
 2. Linked list - 2.27s
 3. Channel - 3.14s
 4. Channel custom - 2.62s
@@ -95,11 +96,12 @@ http://localhost:8081/standard/array-list?elements=100000&iterations=10
 
 ```json
 {
-"startTime": "2021-01-11T16:03:40.588Z",
-"grpcServiceExecutionDuration": 2.2720999999999996,
-"grpcServiceExecutionPrettyDuration": "GRPC average (for 10) execution duration in seconds - 2.27s",
+"startTime": "2021-01-12T09:52:46.180Z",
+"grpcServiceExecutionDuration": 2.7072999999999996,
+"grpcServiceExecutionPrettyDuration": "GRPC average (for 10) execution duration in seconds - 2.71s",
 "iterations": 10,
-"endTime": "2021-01-11T16:04:03.309Z"
+"chunkOperationDelay": 0,
+"endTime": "2021-01-12T09:53:13.253Z"
 }
 ```
 
