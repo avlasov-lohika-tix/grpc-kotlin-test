@@ -1,5 +1,0 @@
-grpc:
-  server:
-    port: 50051
-    enable-keep-alive: true
-    permit-keep-alive-without-calls: true

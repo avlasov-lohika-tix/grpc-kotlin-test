@@ -2,6 +2,7 @@ package org.avlasov.server.grpc
 
 import io.grpc.stub.StreamObserver
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.collect
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.flattenConcat
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.scan
+import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.runBlocking
@@ -23,6 +25,7 @@ import org.avlasov.server.flow.chunked
 import org.avlasov.server.grpc.service.HelpService
 import java.util.*
 import java.util.concurrent.atomic.AtomicLong
+import kotlin.collections.ArrayList
 
 @GrpcService
 class TestServerGrpc(
@@ -32,7 +35,8 @@ class TestServerGrpc(
     override fun testArrayList(responseObserver: StreamObserver<TestResponse>?): StreamObserver<TestRequest> =
         object : StreamObserver<TestRequest> {
 
-            val values = mutableListOf<TestRequest>()
+            var values = mutableListOf<TestRequest>()
+            var jobs = mutableListOf<Job>()
 
             override fun onNext(value: TestRequest?) {
                 if (responseObserver == null || value == null) return
@@ -42,12 +46,16 @@ class TestServerGrpc(
                 val currentSize = values.size
 
                 if (currentSize != 0 && currentSize % CHUNK == 0) {
-                    val prevElement = currentSize - CHUNK
-                    values.subList(prevElement, currentSize)
-                        .map { helpService.modify(it) }
-                        .forEach {
-                            responseObserver.onNext(it)
+                    val chunked = ArrayList(values)
+                    values = mutableListOf()
+                    jobs.add(
+                        GlobalScope.launch {
+                            chunked.map { helpService.modify(it) }
+                                .forEach {
+                                    responseObserver.onNext(it)
+                                }
                         }
+                    )
                 }
             }
 
@@ -56,14 +64,18 @@ class TestServerGrpc(
             }
 
             override fun onCompleted() {
-                val size = values.size
-                if (responseObserver != null && size != 0 && size % CHUNK != 0) {
-                    val lastValues = size % CHUNK
-                    values.subList(size - lastValues, size)
-                        .map { helpService.modify(it) }
-                        .forEach { responseObserver.onNext(it) }
+                jobs.add(
+                    GlobalScope.launch {
+                        values.map { helpService.modify(it) }
+                            .forEach {
+                                responseObserver?.onNext(it)
+                            }
+                    }
+                )
+                runBlocking {
+                    jobs.joinAll()
+                    responseObserver?.onCompleted()
                 }
-                responseObserver?.onCompleted()
             }
 
         }
