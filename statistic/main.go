@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -14,6 +13,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"gopkg.in/yaml.v2"
 )
 
 type apiCallResult struct {
@@ -76,6 +77,7 @@ func (configuration *configuration) readConfiguration() *configuration {
 
 func collectStatistic(configuration *configuration) {
 	start := time.Now()
+	var totalCount = 0
 	endpoint, err := prepareURL(configuration)
 	if err != nil {
 		log.Fatalf("URL prepartation failed %v", err)
@@ -87,7 +89,6 @@ func collectStatistic(configuration *configuration) {
 	}
 
 	for variable, urls := range callMap {
-		var totalCount = 0
 		groupResult := statisticGroupResult{
 			Group:   variable,
 			Results: []apiCall{},
@@ -106,14 +107,14 @@ func collectStatistic(configuration *configuration) {
 					default:
 						fmt.Printf("\rProccessing will end in: %vs", endTime)
 						time.Sleep(1 * time.Second)
-						endTime -= 1
+						endTime--
 					}
 				}
 			}()
 			lastCallStartTime := time.Now()
 			groupResult.Results = append(groupResult.Results, executeApiCall(urlValue))
 			quit <- true
-			totalCount += 1
+			totalCount++
 			percentage := float64(100) / float64(totalElements) * float64(totalCount)
 			fmt.Printf("\rOn %d/%d - %.2f%%. Duration - %.2fs. Total Duration - %.2fs", totalCount, totalElements, percentage,
 				time.Now().Sub(lastCallStartTime).Seconds(),
