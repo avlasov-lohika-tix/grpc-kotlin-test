@@ -172,7 +172,9 @@ class TestServerGrpc(
             override fun onNext(value: TestRequest?) {
                 if (value == null) return
 
-                send(value)
+                GlobalScope.launch {
+                    values.send(value)
+                }
             }
 
             override fun onError(t: Throwable?) {
@@ -180,16 +182,10 @@ class TestServerGrpc(
             }
 
             override fun onCompleted() {
-                runBlocking {
+                GlobalScope.launch {
                     values.close()
                     request.join()
                     responseObserver.onCompleted()
-                }
-            }
-
-            private fun send(testRequest: TestRequest) {
-                runBlocking {
-                    values.send(testRequest)
                 }
             }
 
