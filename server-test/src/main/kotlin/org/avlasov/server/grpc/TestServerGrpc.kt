@@ -156,7 +156,7 @@ class TestServerGrpc(
 
         }
 
-    override fun testChannelChunkedCustom(responseObserver: StreamObserver<TestResponse>?): StreamObserver<TestRequest> =
+    override fun testChannelChunkedCustom(responseObserver: StreamObserver<TestResponse>): StreamObserver<TestRequest> =
         object : StreamObserver<TestRequest> {
 
             val values = Channel<TestRequest>()
@@ -164,23 +164,26 @@ class TestServerGrpc(
                 values.receiveAsFlow()
                     .chunked(CHUNK)
                     .flatMapConcat { helpService.modify(it).asFlow() }
+                    .collect {
+                        responseObserver.onNext(it)
+                    }
             }
 
             override fun onNext(value: TestRequest?) {
-                if (responseObserver == null || value == null) return
+                if (value == null) return
 
                 send(value)
             }
 
             override fun onError(t: Throwable?) {
-                responseObserver?.onError(t)
+                responseObserver.onError(t)
             }
 
             override fun onCompleted() {
                 runBlocking {
                     values.close()
                     request.join()
-                    responseObserver?.onCompleted()
+                    responseObserver.onCompleted()
                 }
             }
 

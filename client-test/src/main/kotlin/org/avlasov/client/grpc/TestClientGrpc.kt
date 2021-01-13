@@ -70,8 +70,6 @@ class TestClientGrpc {
 
         return runBlocking {
             responses.toList()
-        }.also {
-            logger.info { "Completed test array list GRPC call with ${it.size} processed items" }
         }
     }
 

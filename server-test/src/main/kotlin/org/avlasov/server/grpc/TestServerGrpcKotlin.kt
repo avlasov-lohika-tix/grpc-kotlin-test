@@ -56,6 +56,10 @@ class TestServerGrpcKotlin(
     override fun testKotlinFlowCustom(requests: Flow<TestRequest>): Flow<TestResponse> =
         flow {
             requests.chunked(CHUNK)
-                .flatMapConcat { helpService.modify(it).asFlow() }
+                .map { helpService.modify(it) }
+                .collect {
+                    emitAll(it.asFlow())
+                }
+
         }
 }
