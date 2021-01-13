@@ -59,7 +59,12 @@ Statistic example:
 
 ### Implementation
 
-1. [Array List](grpc-kotlin-test/blob/master/server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpc.kt#L30)
+1. [Array List](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpc.kt#L30)
+2. [Linked List](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpc.kt#L69)
+3. [Channel](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpc.kt#L104)
+4. [Channel Custom](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpc.kt#L159)
+5. [Kotlin Flow](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpcKotlin.kt#L28)
+6. [Kotlin Flow Custom](server-test/src/main/kotlin/org/avlasov/server/grpc/TestServerGrpcKotlin.kt#L56)
 
 ## Results
 
