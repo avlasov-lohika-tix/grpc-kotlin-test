@@ -27,7 +27,7 @@ type apiCallResult struct {
 }
 
 type apiCall struct {
-	ApiCallUrl string `yaml:"url"`
+	APICallURL string `yaml:"url"`
 	Result     apiCallResult
 	Error      string
 }
@@ -51,7 +51,7 @@ type configuration struct {
 	Protocol           string
 	Host               string
 	Port               int32
-	StatisticApi       []string            `yaml:"statistic-api"`
+	StatisticAPI       []string            `yaml:"statistic-api"`
 	StatisticVariables []statisticVariable `yaml:"statistic-variables"`
 }
 
@@ -82,7 +82,7 @@ func collectStatistic(configuration *configuration) {
 	if err != nil {
 		log.Fatalf("URL prepartation failed %v", err)
 	}
-	callMap, totalElements := createApiCallMap(configuration, *endpoint)
+	callMap, totalElements := createAPICallMap(configuration, *endpoint)
 	log.Printf("Total tests: %v\n", totalElements)
 	result := statisticResult{
 		StatisticGroupsResult: []statisticGroupResult{},
@@ -112,7 +112,7 @@ func collectStatistic(configuration *configuration) {
 				}
 			}()
 			lastCallStartTime := time.Now()
-			groupResult.Results = append(groupResult.Results, executeApiCall(urlValue))
+			groupResult.Results = append(groupResult.Results, executeAPICall(urlValue))
 			quit <- true
 			totalCount++
 			percentage := float64(100) / float64(totalElements) * float64(totalCount)
@@ -153,15 +153,15 @@ func prepareURL(configuration *configuration) (*url.URL, error) {
 	return URL.Parse(protocol + "://" + host + ":" + strconv.Itoa(int(configuration.Port)))
 }
 
-func createApiCallMap(configuration *configuration, endpoint url.URL) (map[statisticVariable][]url.URL, int) {
+func createAPICallMap(configuration *configuration, endpoint url.URL) (map[statisticVariable][]url.URL, int) {
 	dataMap := make(map[statisticVariable][]url.URL)
 	var counter = 0
-	for _, api := range configuration.StatisticApi {
-		var newUrl = endpoint
-		newUrl.Path = api
+	for _, api := range configuration.StatisticAPI {
+		var newURL = endpoint
+		newURL.Path = api
 		for _, testVariable := range configuration.StatisticVariables {
-			var queryUrl = newUrl
-			query := queryUrl.Query()
+			var queryURL = newURL
+			query := queryURL.Query()
 			if testVariable.Elements > 0 {
 				query.Set("elements", strconv.Itoa(int(testVariable.Elements)))
 			}
@@ -171,24 +171,24 @@ func createApiCallMap(configuration *configuration, endpoint url.URL) (map[stati
 			if testVariable.ChunkDelay > 0 {
 				query.Set("delay", strconv.Itoa(int(testVariable.ChunkDelay)))
 			}
-			queryUrl.RawQuery = query.Encode()
-			counter += 1
+			queryURL.RawQuery = query.Encode()
+			counter++
 			urls := dataMap[testVariable]
 			if len(urls) == 0 {
 				var emptySlice []url.URL
 				dataMap[testVariable] = emptySlice
 			}
-			dataMap[testVariable] = append(urls, queryUrl)
+			dataMap[testVariable] = append(urls, queryURL)
 		}
 	}
 	return dataMap, counter
 }
 
-func executeApiCall(urlValue url.URL) apiCall {
-	stringUrlValue := urlValue.String()
-	get, err := http.Get(stringUrlValue)
+func executeAPICall(urlValue url.URL) apiCall {
+	stringURLValue := urlValue.String()
+	get, err := http.Get(stringURLValue)
 	apiCall := apiCall{
-		ApiCallUrl: stringUrlValue}
+		APICallURL: stringURLValue}
 	if err != nil {
 		apiCall.Error = err.Error()
 		return apiCall
