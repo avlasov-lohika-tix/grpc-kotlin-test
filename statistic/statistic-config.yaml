@@ -4,9 +4,9 @@ port: 8081
 statistic-api:
   - /standard/array-list
   - /standard/linked-list
-  - /standard/channel
+#  - /standard/channel
   - /standard/channel/custom
-  - /kotlin-flow/default
+#  - /kotlin-flow/default
   - /kotlin-flow/custom
 statistic-variables:
   -

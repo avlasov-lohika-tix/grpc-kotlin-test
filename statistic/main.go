@@ -94,7 +94,7 @@ func collectStatistic(configuration *configuration) {
 			Results: []apiCall{},
 		}
 		for _, urlValue := range urls {
-			fmt.Printf("\nProccessing url: %v\n", urlValue.String())
+			fmt.Printf("\nProcessing url: %v\n", urlValue.String())
 			quit := make(chan bool)
 			go func() {
 				processingTime := int((variable.Elements / 500 * int32(variable.ChunkDelay)) * int32(variable.Iterations))
@@ -105,7 +105,7 @@ func collectStatistic(configuration *configuration) {
 					case <-quit:
 						return
 					default:
-						fmt.Printf("\rProccessing will end in: %vs", endTime)
+						fmt.Printf("\rProcessing will end in: %vs", endTime)
 						time.Sleep(1 * time.Second)
 						endTime--
 					}
