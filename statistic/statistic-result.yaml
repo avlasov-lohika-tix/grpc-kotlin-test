@@ -1,0 +1,581 @@
+statistic-groups-result:
+- group:
+    elements: 500000
+    iterations: 10
+    chunk-delay: 0
+  results:
+  - url: http://localhost:8081/standard/array-list?elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?elements=500000&iterations=10":
+      EOF'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=500000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=500000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=500000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=500000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=500000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=500000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 1000000
+    iterations: 10
+    chunk-delay: 0
+  results:
+  - url: http://localhost:8081/standard/array-list?elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 1000
+    iterations: 5
+    chunk-delay: 1
+  results:
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=1000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 5000
+    iterations: 5
+    chunk-delay: 1
+  results:
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=5000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=5000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 10000
+    iterations: 5
+    chunk-delay: 1
+  results:
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=10000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=10000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 15000
+    iterations: 5
+    chunk-delay: 1
+  results:
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=15000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=15000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 20000
+    iterations: 5
+    chunk-delay: 1
+  results:
+  - url: http://localhost:8081/standard/array-list?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=20000&iterations=5
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=20000&iterations=5":
+      dial tcp [::1]:8081: connect: connection refused'
+- group:
+    elements: 100000
+    iterations: 10
+    chunk-delay: 0
+  results:
+  - url: http://localhost:8081/standard/array-list?elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/array-list?elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/linked-list?delay=1&elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/linked-list?delay=1&elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel?delay=1&elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel?delay=1&elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/standard/channel/custom?delay=1&elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/standard/channel/custom?delay=1&elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/default?delay=1&elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/default?delay=1&elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'
+  - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=100000&iterations=10
+    result:
+      start-time: ""
+      grpc-service-execution-duration: 0
+      grpc-service-execution-pretty-duration: ""
+      iterations: 0
+      chunk-operation-delay: 0
+      end-time: ""
+    error: 'Get "http://localhost:8081/kotlin-flow/custom?delay=1&elements=100000&iterations=10":
+      dial tcp [::1]:8081: connect: connection refused'

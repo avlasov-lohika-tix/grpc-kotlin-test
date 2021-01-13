@@ -1,0 +1,42 @@
+protocol: "http"
+host: "localhost"
+port: 8081
+statistic-api:
+  - /standard/array-list
+  - /standard/linked-list
+  - /standard/channel
+  - /standard/channel/custom
+  - /kotlin-flow/default
+  - /kotlin-flow/custom
+statistic-variables:
+  -
+    elements: 100000
+    iterations: 10
+  -
+    elements: 500000
+    iterations: 10
+  -
+    elements: 1000000
+    iterations: 10
+  -
+    elements: 1000
+    chunk-delay: 1
+    iterations: 5
+  -
+    elements: 5000
+    chunk-delay: 1
+    iterations: 5
+  -
+    elements: 10000
+    chunk-delay: 1
+    iterations: 5
+  -
+    elements: 15000
+    chunk-delay: 1
+    iterations: 5
+  -
+    elements: 20000
+    chunk-delay: 1
+    iterations: 5
+
+
