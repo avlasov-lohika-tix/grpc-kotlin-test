@@ -38,5 +38,13 @@ statistic-variables:
     elements: 20000
     chunk-delay: 1
     iterations: 5
+  -
+    elements: 50000
+    chunk-delay: 1
+    iterations: 5
+  -
+    elements: 100000
+    chunk-delay: 1
+    iterations: 5
 
 

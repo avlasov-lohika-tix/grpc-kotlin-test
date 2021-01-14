@@ -359,3 +359,93 @@ statistic-groups-result:
       chunk-operation-delay: 1
       end-time: "2021-01-13T10:38:19.650Z"
     error: ""
+- group:
+    elements: 50000
+    iterations: 5
+    chunk-delay: 1
+  results:
+    - url: http://localhost:8081/standard/array-list?delay=1&elements=50000&iterations=5
+      result:
+        start-time: "2021-01-13T16:16:16.038Z"
+        grpc-service-execution-duration: 101.7736
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 101.77s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T16:24:44.906Z"
+      error: ""
+    - url: http://localhost:8081/standard/linked-list?delay=1&elements=50000&iterations=5
+      result:
+        start-time: "2021-01-13T16:24:45.155Z"
+        grpc-service-execution-duration: 101.7616
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 101.76s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T16:33:13.963Z"
+      error: ""
+    - url: http://localhost:8081/standard/channel/custom?delay=1&elements=50000&iterations=5
+      result:
+        start-time: "2021-01-13T16:33:14.799Z"
+        grpc-service-execution-duration: 100.795
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 100.80s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T16:41:38.774Z"
+      error: ""
+    - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=50000&iterations=5
+      result:
+        start-time: "2021-01-13T16:41:38.896Z"
+        grpc-service-execution-duration: 102.64359999999999
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 102.64s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T16:50:12.114Z"
+      error: ""
+- group:
+    elements: 100000
+    iterations: 5
+    chunk-delay: 1
+  results:
+    - url: http://localhost:8081/standard/array-list?delay=1&elements=100000&iterations=5
+      result:
+        start-time: "2021-01-13T16:50:12.230Z"
+        grpc-service-execution-duration: 203.7602
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 203.76s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T17:07:11.031Z"
+      error: ""
+    - url: http://localhost:8081/standard/linked-list?delay=1&elements=100000&iterations=5
+      result:
+        start-time: "2021-01-13T17:07:11.355Z"
+        grpc-service-execution-duration: 203.6842
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 203.68s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-13T17:24:09.776Z"
+      error: ""
+    - url: http://localhost:8081/standard/channel/custom?delay=1&elements=100000&iterations=5
+      result:
+        start-time: "2021-01-13T17:24:10.255Z"
+        grpc-service-execution-duration: 10131.2678
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 10131.27s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-14T07:28:26.596Z"
+      error: ""
+    - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=100000&iterations=5
+      result:
+        start-time: "2021-01-14T07:28:27.114Z"
+        grpc-service-execution-duration: 204.86920000000003
+        grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
+          in seconds - 204.87s
+        iterations: 5
+        chunk-operation-delay: 1
+        end-time: "2021-01-14T07:45:31.460Z"
+      error: ""
