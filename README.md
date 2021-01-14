@@ -2,7 +2,7 @@
 
 ## Description
 
-The repository shows different examples on how to use GRPC StreamObserver as a request and a response.
+The repository shows different examples of how to use GRPC StreamObserver as a request and a response.
 
 ## How to run?
 
@@ -28,11 +28,11 @@ Make calls to the url http://localhost:8081 with one of the [API](#API) calls
 
 ## How it works?
 
-If you make call to the next url http://localhost:8081/standard/array-list?elements=100&iterations=10, then the system will make the next steps:
+If you make a call to the next URL http://localhost:8081/standard/array-list?elements=100&iterations=10, then the system will make the next steps:
 
 1. Generate a list of 100 elements
 2. Create StreamObserver for responses
-3. Retrieve all responses for 10 times
+3. Retrieve all responses ten times
 4. Generate statistic of an operation
 
 Statistic example:
@@ -54,7 +54,7 @@ Statistic example:
 2. /standard/linked-list?elements=%n&iterations=%n TestClientStandardController.kt [GET] - all elements are stored inside of an linked list
 3. ~~/standard/channel?elements=%n&iterations=%n TestClientStandardController.kt [GET] - all elements are stored inside channel. This method use experimental feature to chunk a channel~~ - this method has problems with execution when it running with delays
 4. /standard/channel-custom?elements=%n&iterations=%n TestClientStandardController.kt [GET] - all elements are stored inside channel. This method use self created feature to chunk a channel
-5. ~~/kotlin-flow/default?elements=%n&iterations=%n TestClientKotlinFlowController.kt [GET] - This method is based on Kotlin Flow, provided by grpc-kotlin dependency. It use experimental feature to chunk a channel~~ - this method has problems with tail of an elements
+5. ~~/kotlin-flow/default?elements=%n&iterations=%n TestClientKotlinFlowController.kt [GET] - This method is based on Kotlin Flow, provided by grpc-kotlin dependency. It use the experimental feature to chunk a channel~~ - this method has problems with a tail of an elements
 6. /kotlin-flow/custom?elements=%n&iterations=%n TestClientKotlinFlowController.kt [GET] - This method is based on Kotlin Flow, provided by grpc-kotlin dependency. It use self created feature to chunk a channel
 
 ### Implementation
@@ -68,7 +68,7 @@ Statistic example:
 
 ## Results
 
-Please, take a look a the [statistic response](#Statistic response) for more details
+Please, take a look at the [statistic response](#Statistic response) for more details
 
 ### With delay
 
