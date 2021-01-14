@@ -432,12 +432,12 @@ statistic-groups-result:
     - url: http://localhost:8081/standard/channel/custom?delay=1&elements=100000&iterations=5
       result:
         start-time: "2021-01-13T17:24:10.255Z"
-        grpc-service-execution-duration: 10131.2678
+        grpc-service-execution-duration: 203.1718
         grpc-service-execution-pretty-duration: GRPC average (for 5) execution duration
-          in seconds - 10131.27s
+          in seconds - 203.17s
         iterations: 5
         chunk-operation-delay: 1
-        end-time: "2021-01-14T07:28:26.596Z"
+        end-time: "2021-01-13T17:27:13.596Z"
       error: ""
     - url: http://localhost:8081/kotlin-flow/custom?delay=1&elements=100000&iterations=5
       result:

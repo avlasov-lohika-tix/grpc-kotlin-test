@@ -112,6 +112,24 @@ Min execution time - 40s (20000/500*1)
 3. Channel custom - 41.04s
 4. Kotlin flow custom - 40.99s
 
+#### 50000 Elements, 5 iterations, 1 second delay
+
+Min execution time - 100s (50000/500*1)
+
+1. Array list - 101.77s
+2. Linked list - 101.76s
+3. Channel custom - 100.80s
+4. Kotlin flow custom - 102.64s
+
+#### 100000 Elements, 5 iterations, 1 second delay
+
+Min execution time - 200s (20000/500*1)
+
+1. Array list - 203.76s
+2. Linked list - 203.68s
+3. Channel custom - 203.17ss
+4. Kotlin flow custom - 204.87s
+
 ### Without delay
 
 #### 100000 Elements, 10 iterations
